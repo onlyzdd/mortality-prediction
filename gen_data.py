@@ -32,6 +32,6 @@ def gen_data():
 
 
 if __name__ == "__main__":
-    # deidentify()
+    deidentify()
     gen_data()
 
