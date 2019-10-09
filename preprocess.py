@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from datetime import timedelta
 
 
@@ -29,9 +30,21 @@ def get_demographics():
 
 
 def get_features():
-    pass
-
+    adm = pd.read_csv('./data/mimic/admissions.csv', parse_dates=['admittime'])[['hadm_id', 'admittime']]
+    labels = pd.read_csv('./data/preprocessed/all/labels.csv')[['hadm_id']]
+    adm = adm[adm.hadm_id.isin(labels.hadm_id)]
+    for feature in ['vital', 'lab', 'bg']:
+        df = pd.read_csv('./data/mimic/pivoted_{}.csv'.format(feature), parse_dates=['charttime'])
+        columns = df.columns
+        df = df.merge(adm, on='hadm_id')
+        df.charttime = (df.charttime - df.admittime) / np.timedelta64(1,'h')
+        df = df[df.charttime < 48]
+        df = df[columns]
+        df.to_csv('./data/preprocessed/all/{}s.csv'.format(feature), index=None)
+    
 
 if __name__ == "__main__":
-    get_labels()
-    get_demographics()
+    # get_labels()
+    # get_demographics()
+    get_features()
+
