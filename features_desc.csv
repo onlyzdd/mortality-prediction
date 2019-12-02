@@ -1,0 +1,31 @@
+feature,feature_detail
+heartrate,Heart rate 
+sysbp,Blood Pressure Systolic 
+diasbp,Blood Pressure Diastolic 
+map,Mean arterial pressure 
+resprate,Respiratory rate 
+tempc,Temperature Celsius 
+spo2,Oxygen saturation 
+aniongap,Anion gap 
+albumin,Albumin 
+bands,Bands 
+bicarbonate,Bicarbonate 
+bilirubin,Bilirubin
+creatinine,Creatinine
+chloride,Chloride
+glucose,Glucose
+hematocrit,Hematocrit
+hemoglobin,Hemoglobin
+lactate,Lactate
+platelet,Platelet
+potassium,Potassium
+ptt,Partial Thromboplastin Time
+inr,INR
+pt,Prothrombin Time
+sodium,Sodium
+bun,Blood Urea Nitrogen
+wbc,White Blood Cell Count
+calcium,Calcium
+ph,PH
+pco2,Partial Pressure Carbon Dioxide
+
